@@ -1,0 +1,263 @@
+.extension-wrapper {
+    width: 400px; 
+    height: 600px; 
+}
+
+
+body {
+    background-color: #f0f0f0;
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+.chatbot-container {
+    width: 100%;
+    height: 100%;
+    background-color: #1e1e1e;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: #2a2a2a;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.chat-window {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-window::-webkit-scrollbar {
+    width: 8px;
+}
+.chat-window::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+.chat-window::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 10px;
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    max-width: 90%;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.message i {
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message p {
+    margin: 0;
+    padding: 12px;
+    border-radius: 10px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.bot-message {
+    align-self: flex-start;
+}
+.bot-message i {
+    background-color: #3a3a3a;
+}
+.bot-message p {
+    background-color: #2c2c2c;
+}
+
+.user-message {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+.user-message i {
+    margin-left: 10px;
+    margin-right: 0;
+    background-color: #007bff;
+}
+.user-message p {
+    background-color: #0056b3;
+}
+
+.loading-indicator {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+}
+.loading-indicator .spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #555;
+    border-top-color: #e0e0e0;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #333;
+    background-color: #2a2a2a;
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    resize: none;
+}
+
+#send-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0 18px;
+    margin-left: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#send-btn:hover {
+    background-color: #0056b3;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+/* --- Modal Styles --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #2a2a2a;
+    padding: 25px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 650px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.visible .modal-content {
+    transform: scale(1);
+}
+
+.modal-content h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #a0a0a0;
+}
+
+.prompts-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.prompt-box {
+    width: 50%;
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+    border: 1px solid #333;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.prompt-box h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #4e9af1;
+}
+
+.confirmation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.confirmation-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.confirm-yes {
+    background-color: #28a745;
+    color: white;
+}
+.confirm-yes:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.confirm-no {
+    background-color: #dc3545;
+    color: white;
+}
+.confirm-no:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}

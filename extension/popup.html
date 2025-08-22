@@ -1,0 +1,53 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Chatbot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- The structure is now inside a wrapper to control the size -->
+    <div class="extension-wrapper">
+        <div class="chatbot-container">
+            <div class="chat-header">
+                <h2>AI Chatbot</h2>
+            </div>
+            <div class="chat-window" id="chat-window">
+                <div class="message bot-message">
+                    <i class="fas fa-robot"></i>
+                    <p>Hello! How can I help you today?</p>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <textarea id="message-input" placeholder="Type your message..." rows="1"></textarea>
+                <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure (hidden by default) -->
+    <div id="confirmation-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>A better prompt is available. Would you like to use it?</h3>
+            <div class="prompts-container">
+                <div class="prompt-box">
+                    <h4>Your Prompt</h4>
+                    <p id="original-prompt-text"></p>
+                </div>
+                <div class="prompt-box">
+                    <h4>Optimized Prompt</h4>
+                    <p id="optimized-prompt-text"></p>
+                </div>
+            </div>
+            <div class="confirmation-buttons">
+                <button id="confirm-yes" class="confirm-yes">Yes, Use Optimized</button>
+                <button id="confirm-no" class="confirm-no">No, Use Original</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
